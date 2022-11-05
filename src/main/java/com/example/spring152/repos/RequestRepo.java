@@ -1,10 +1,10 @@
 package com.example.spring152.repos;
 
-import com.example.spring152.models.ItemModel;
+import com.example.spring152.models.RequestModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ItemRepo extends JpaRepository<ItemModel, Long> {
-    ItemModel findById(long id);
+public interface RequestRepo extends JpaRepository <RequestModel,Long> {
+RequestRepo findById(long id);
 }

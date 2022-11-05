@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -66,47 +66,34 @@
     </div>
 </header>
 
-<form method="post">
-    <input type="number" name="min" placeholder="Минимальная цена"><br>
-    <input type="number" name="max" placeholder="Максимальная цена"><br>
-    <button type="submit">Применить</button>
-</form>
-<a href = "/allItems/cars">Автомобили</a>
-<a href = "/allItems/cats">Котики</a>
-<a href = "/allItems/hometechnics">Бытовая техника</a>
-<a href = "/allItems/drugs">Наркотики</a>
-<a href = "/allItems/other">Другое</a>
-<p><a href="/allItems">Сбросить фильтр</a></p>
-<div class="album py-5 bg-light">
-    <div class="container">
+<main role="main">
 
-        <div class="row" >
-            <div class="col-md-4" th:each="i : ${items}">
-                <div class="card mb-4 shadow-sm">
-                    <img th:src="${i.getUrl()}"  width="100%" height="225">
-                    <div class="card-body">
-                        <p class="card-text" th:text="${i.getName()}"></p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a th:href="'/detailItem/'+${i.getId()}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
-                            </div>
-                            <small class="text-muted" th:text="${i.getPrice()}"></small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 th:text="${item.getName()}"></h1></h1>
+            <p th:text="${item.getDisc()}"></p>
+            <h3 th:text="${item.getPrice()}"></h3>
         </div>
+    </section>
+
+
+
+<p style="text-align: center;"><img th:src="${item.getUrl()}" width="50%" height="50%"></p>
+
+<<form method="post" th:action="'/detailItem/post/'+${item.getId()}">
+    <input name="name">Введите ваше имя<br>
+    <input name="contact">Введите ваш номер телефона<br>
+    <button type="submit">Оставить заявку</button>
+</form>
+
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.3/getting-started/introduction/">getting started guide</a>.</p>
     </div>
-</div>
-<footer>
-<div class="container">
-    <p class="float-right">
-        <a href="#">Back to top</a>
-    </p>
-    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.3/getting-started/introduction/">getting started guide</a>.</p>
-</div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+</body>
 </html>

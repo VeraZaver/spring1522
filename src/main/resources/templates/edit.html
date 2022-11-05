@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    <img th:src="${item.getUrl()}"  width="100%" height="225">
+    <input name = "url">
+    <h1 th:text="${item.getName()}"></h1>
+    <input name="name">
+    <p th:text="${item.getDisc()}"></p>
+    <input name = "disc">
+    <h3 th:text="${item.getPrice()}"></h3>
+    <input name = "price">
+
+    <button type="submit">Сохранить изменения</button>
+    имя
+    название товара
+    цена
+    (с помощью тимлифа поставить готовый тект, который у нас в БД хранится, чтобы пользователь вбивал текст и изм-я сохр-сь)
+</form>
+</body>
+</html>
